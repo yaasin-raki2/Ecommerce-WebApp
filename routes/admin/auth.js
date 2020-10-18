@@ -42,7 +42,7 @@ router.get("/signin", (req, res) => {
 
 router.post(
     '/signin', 
-    [ requireEmailExists, requireValidPasswordForUser], 
+    [ requireEmailExists, requireValidPasswordForUser ], 
     handleErrors(signinTemplate),
     async (req, res) => {
 
