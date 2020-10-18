@@ -6,10 +6,19 @@ module.exports = {
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
-                res.send(templateFunc({ errors }));
+                return res.send(templateFunc({ errors }));
             }
 
             next();
         }
+    },
+    
+    requireAuth (req, res, next) {
+
+        if (!req.session.userId) {
+            return res.redirect('/signin');
+        }
+        next();
+        
     }
 }

@@ -48,7 +48,7 @@ router.post(
 
     const { email } = req.body;
     const user = await usersRepo.getOneBy({ email });
-    req.session.Id = user.id;
+    req.session.userId = user.id;
 
     res.redirect('/admin/products');
 })
